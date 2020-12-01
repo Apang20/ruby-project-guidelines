@@ -5,7 +5,9 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.string :gender
       t.integer :age
       t.integer :shelter_id
-      t.boolean :adopted 
+      t.boolean :adopted, default: false
     end
   end
 end
+
+# figure out how to use the t.boolean
