@@ -1,0 +1,35 @@
+adopt_a_pup project README
+
+Project Requirements:
+Option Two - Command Line CRUD App
+1. Access a Sqlite3 Database using ActiveRecord.
+2. You should have a minimum of three models.
+3. You should build out a CLI to give your user full CRUD ability for at least one of your resources. For example, build out a command line To-Do list. A user should be able to create a new to-do, see all todos, update a todo item, and delete a todo. Todos can be grouped into categories, so that a to-do has many categories and categories have many to-dos.
+4. Use good OO design patterns. You should have separate classes for your models and CLI interface.
+
+Description:
+This application uses our created data and provides dogs based on the user's preferences. It can track and save the user's activity. 
+
+Installation:
+Fork and clone the repo
+$ Bundle install to get dependencies
+$ rake start to enter the application
+If necessary, CTRL+C / CMD+C to hard-exit the application
+Once the visit is recorded, the adopt_a_pup app will know that the user visited.
+
+User Navigation:
+Shelter greets the user 
+User inputs preferences
+Search for a pup by user preferences
+View total amount of pups that meet preferences
+View selected pups information
+User can choose to adopt or continue search 
+Adopt a pup 
+Edit name of pup 
+Delete adopted pup from App 
+Shelter thanks the user for adoption 
+
+
+
+
+
