@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_203216) do
     t.string "breed"
     t.integer "age"
     t.integer "shelter_id"
-    t.boolean "adopted", default: false
+    t.boolean "adopted"
   end
 
   create_table "shelters", force: :cascade do |t|

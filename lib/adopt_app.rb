@@ -8,9 +8,9 @@ class AdoptApp
     def run
         welcome
         enter_name
-        view_all_dogs
+        shelter_dogs
         adopt
-        #delete
+        goodbye
     end
 
     def welcome
@@ -26,34 +26,44 @@ class AdoptApp
         puts "Let's go meet your new best friend, #{@@user.name.capitalize}!"
     end
 
-    def view_all_dogs #modify to only return the available dogs
-         dogs = Dog.all.map {|dog| dog.name}
-        dog_name = @@prompt.select("Would you like to see some pups?!", dogs)
+
+      def shelter_dogs 
+        dogs = Dog.all.select { |dog| dog.adopted == false}
+        dogs_list = dogs.map {|dog| dog.name}
+        dog_name = @@prompt.select("Would you like to see some pups?!", dogs_list)
         @@selected_dog = Dog.find_by(name: dog_name)
         puts "I am so happy to meet you! My name is #{@@selected_dog.name} and I am a #{@@selected_dog.breed}."
         puts "I am a #{@@selected_dog.gender} pup who just turned #{@@selected_dog.age} year(s) old."
-    end
+        end 
 
-    def adopt
-       puts "Would you like to take me to my furever home, #{@@user.name.capitalize}? Yes? or Maybe later?"
-         answer = gets.chomp.downcase
-          if answer == "yes"
-            # @@selected_dog.update_column(:adopted, true)
-            #the selected dog, change adopted status to true
-            puts "I am ready for my new name! What you like to name me?!"
-           new_dog_name = gets.chomp.downcase
-            @@selected_dog = new_dog_name
-            puts "I love the name, #{new_dog_name.capitalize}! THIS IS THE BEST DAY EVER!!!!! <3"
-          else
-            puts "Oh, okay. *Sad puppy eyes*.... queue Sara McGlothlin's Angel song."
-            puts "Until next time... :( #guilttrip"
+
+      def adopt
+          # puts "Would you like to take me to my furever home, #{@@user.name.capitalize}? Please enter ONE the following options: Yes, No, Continue"
+          #   answer = gets.chomp.downcase
+          response = @@prompt.select("Would you like to take me to my furever home, #{@@user.name.capitalize}? Please select one of the following options") do |reply|
+            reply.choice "yes"
+            reply.choice "no"
+            reply.choice "exit"
           end
-    end
-    
-    # def delete_adopted_dog
-    #     @@selected_dog.delete
-    #then thank user for adoption
-    # end
+             if response == "yes"
+               @@selected_dog.update_column(:adopted,[true])
+               puts "I am ready for my new name! What you like to name me?!"
+              new_dog_name = gets.chomp.downcase
+               @@selected_dog.name = new_dog_name
+               puts "I love the name, #{new_dog_name.capitalize}! THIS IS THE BEST DAY EVER!!!!! <3"
+               sleep(3)
+             elsif response == "no"
+              shelter_dogs 
+              adopt 
+             else 
+               puts "Oh, okay. *Sad puppy eyes*.... queue Sara McGlothlin's Angel song."
+               puts "Until next time... :( #guilttrip"
+             end
+       end
+  
+    def goodbye
+      puts "Thank you for visiting our shelter! Goodbye :)"
+    end 
 
 
 
