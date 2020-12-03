@@ -19,13 +19,13 @@ adopt_a_pup = Shelter.create(name:"Adopt a Pup")
 #       t.integer :shelter_id
 #       t.boolean :adopted 
 
-balto = Dog.create(name:"Balto", gender: "male", age: 5, shelter_id: adopt_a_pup.id, adopted: false)
-clifford = Dog.create(name:"Clifford", gender: "male", age: 2, shelter_id: adopt_a_pup.id, adopted: false)
-spot = Dog.create(name:"Spot", gender: "male", age: 1, shelter_id: adopt_a_pup.id, adopted: false)
-wishbone = Dog.create(name:"Wishbone", gender: "male", age: 9, shelter_id: adopt_a_pup.id, adopted: false)
-princess = Dog.create(name:"Princess", gender: "female", age: 6, shelter_id: adopt_a_pup.id, adopted: false)
-courage = Dog.create(name:"Courage", gender: "male", age: 3, shelter_id: adopt_a_pup.id, adopted: false)
-lassie = Dog.create(name:"Lassie", gender: "female", age: 2, shelter_id: adopt_a_pup.id, adopted: false)
+balto = Dog.create(name:"Balto", gender: "male", breed: "husky", age: 5, shelter_id: adopt_a_pup.id)
+clifford = Dog.create(name:"Clifford", gender: "male", breed: "red lab", age: 2, shelter_id: adopt_a_pup.id)
+spot = Dog.create(name:"Spot", gender: "male", breed: "dalmation", age: 1, shelter_id: adopt_a_pup.id)
+wishbone = Dog.create(name:"Wishbone", gender: "male", breed: "terrier", age: 9, shelter_id: adopt_a_pup.id)
+princess = Dog.create(name:"Princess", gender: "female", breed: "poodle", age: 6, shelter_id: adopt_a_pup.id)
+courage = Dog.create(name:"Courage", gender: "male", breed: "chihuahua", age: 3, shelter_id: adopt_a_pup.id)
+lassie = Dog.create(name:"Lassie", gender: "female", breed: "collie", age: 2, shelter_id: adopt_a_pup.id)
 
 #adoption data
 # t.integer :user_id

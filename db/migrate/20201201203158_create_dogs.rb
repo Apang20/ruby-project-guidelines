@@ -3,9 +3,10 @@ class CreateDogs < ActiveRecord::Migration[6.0]
     create_table :dogs do |t|
       t.string :name
       t.string :gender
+      t.string :breed
       t.integer :age
       t.integer :shelter_id
-      t.boolean :adopted, default: false
+      
     end
   end
 end
