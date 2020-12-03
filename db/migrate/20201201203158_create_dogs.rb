@@ -6,6 +6,7 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.string :breed
       t.integer :age
       t.integer :shelter_id
+      t.boolean :adopted, default: false
       
     end
   end

@@ -26,7 +26,7 @@ class AdoptApp
         puts "Let's go meet your new best friend, #{@@user.name.capitalize}!"
     end
 
-    def view_all_dogs
+    def view_all_dogs #modify to only return the available dogs
          dogs = Dog.all.map {|dog| dog.name}
         dog_name = @@prompt.select("Would you like to see some pups?!", dogs)
         @@selected_dog = Dog.find_by(name: dog_name)
@@ -38,11 +38,12 @@ class AdoptApp
        puts "Would you like to take me to my furever home, #{@@user.name.capitalize}? Yes? or Maybe later?"
          answer = gets.chomp.downcase
           if answer == "yes"
+            # @@selected_dog.update_column(:adopted, true)
+            #the selected dog, change adopted status to true
             puts "I am ready for my new name! What you like to name me?!"
            new_dog_name = gets.chomp.downcase
             @@selected_dog = new_dog_name
             puts "I love the name, #{new_dog_name.capitalize}! THIS IS THE BEST DAY EVER!!!!! <3"
-            # @@selected_dog.delete
           else
             puts "Oh, okay. *Sad puppy eyes*.... queue Sara McGlothlin's Angel song."
             puts "Until next time... :( #guilttrip"
