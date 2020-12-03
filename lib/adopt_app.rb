@@ -26,7 +26,6 @@ class AdoptApp
         puts "Let's go meet your new best friend, #{@@user.name.capitalize}!"
     end
 
-
       def shelter_dogs 
         dogs = Dog.all.select { |dog| dog.adopted == false}
         dogs_list = dogs.map {|dog| dog.name}
@@ -38,8 +37,6 @@ class AdoptApp
 
 
       def adopt
-          # puts "Would you like to take me to my furever home, #{@@user.name.capitalize}? Please enter ONE the following options: Yes, No, Continue"
-          #   answer = gets.chomp.downcase
           response = @@prompt.select("Would you like to take me to my furever home, #{@@user.name.capitalize}? Please select one of the following options") do |reply|
             reply.choice "yes"
             reply.choice "no"

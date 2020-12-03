@@ -12,4 +12,4 @@ class CreateDogs < ActiveRecord::Migration[6.0]
   end
 end
 
-# figure out how to use the t.boolean
+
