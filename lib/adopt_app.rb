@@ -14,8 +14,8 @@ class AdoptApp
     end
 
     def welcome
-        puts "Welcome to Adopt-a-Pup where best friends are made!"
-        sleep(1)   
+        puts "Welcome to Adopt-a-Pup where best friends are made!\n\n" 
+        sleep(3)   
     end
 
     def enter_name
@@ -23,16 +23,17 @@ class AdoptApp
         answer = gets.chomp.downcase
         @@user = User.find_or_create_by(name: answer)
         sleep(1)
-        puts "Let's go meet your new best friend, #{@@user.name.capitalize}!"
+        puts "Let's go meet your new best friend, #{@@user.name.capitalize}!\n\n"
+        sleep(3)
     end
 
       def shelter_dogs 
         dogs = Dog.all.select { |dog| dog.adopted == false}
         dogs_list = dogs.map {|dog| dog.name}
-        dog_name = @@prompt.select("Would you like to see some pups?!", dogs_list)
+        dog_name = @@prompt.select("Please select one of the following pups.", dogs_list)
         @@selected_dog = Dog.find_by(name: dog_name)
         puts "I am so happy to meet you! My name is #{@@selected_dog.name} and I am a #{@@selected_dog.breed}."
-        puts "I am a #{@@selected_dog.gender} pup who just turned #{@@selected_dog.age} year(s) old."
+        puts "I am a #{@@selected_dog.gender} pup who just turned #{@@selected_dog.age} year(s) old.\n\n"
         end 
 
 
@@ -47,14 +48,16 @@ class AdoptApp
                puts "I am ready for my new name! What you like to name me?!"
               new_dog_name = gets.chomp.downcase
                @@selected_dog.name = new_dog_name
-               puts "I love the name, #{new_dog_name.capitalize}! THIS IS THE BEST DAY EVER!!!!! <3"
+               puts "I love the name, #{new_dog_name.capitalize}! THIS IS THE BEST DAY EVER!!!!! <3\n\n"
                sleep(3)
              elsif response == "no"
               shelter_dogs 
               adopt 
              else 
-               puts "Oh, okay. *Sad puppy eyes*.... queue Sara McGlothlin's Angel song."
-               puts "Until next time... :( #guilttrip"
+               puts "Oh, okay. *Sad puppy eyes*.... queue Sara McGlothlin's Angel song.\n\n"
+               sleep(2)
+               puts "Until next time... :( #guilttrip\n\n"
+               sleep(3)
              end
        end
   

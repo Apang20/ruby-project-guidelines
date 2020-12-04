@@ -5,5 +5,3 @@ app = AdoptApp.new
 app.run
 
 prompt = TTY::Prompt.new
-
-# puts "Let's adopt some pups!"
